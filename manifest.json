@@ -1,0 +1,75 @@
+{
+  "manifest_version": 2,
+
+  "name": "Kronos",
+  "short_name": "Kronos",
+  "description": "Browse with your voices",
+  "version": "0.7.1",
+  //"default_locale": "en",
+
+
+  "background": {
+    "scripts": [
+      "javascript/es6-promise.auto.min.js",
+      "javascript/defaults.js",
+      "javascript/speech.js",
+      //"javascript/document.js",
+      //"javascript/events.js",
+      "javascript/stt.js",
+      "javascript/listen.js"
+    ],
+    "persistent": false
+  },
+
+
+
+  "browser_action": {
+    "default_icon": "image/icon.png"
+    },
+
+
+
+  "icons": {
+    //"16": "image/icon-16.png",
+    "48": "image/icon-48.png",
+    "128": "image/icon.png"
+  },
+
+
+
+  "permissions": [
+    "activeTab",
+    "tabs",
+    "storage",
+    "contextMenus",
+            "http://*/",
+        "https://*/"
+  ],
+
+
+
+  "content_scripts": [
+  {
+    "matches": [
+      "<all_urls>"
+    ],
+    "js": ["javascript/content1.js"]
+  }
+]
+
+
+
+  ,
+  "options_ui": {
+    "page": "options.html",
+    "chrome_style": true
+  },
+
+
+
+  "tts_engine": {
+    "voices": [
+      {"voice_name": "GoogleTranslate English", "lang": "en", "event_types": ["start", "end", "error"]}
+    ]
+  }
+}
